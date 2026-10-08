@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="theme-color" content="#050810" />
+    <title>心有沟壑</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="cesiumContainer"></div>
+
+      <header class="top-bar">
+        <div class="brand">
+          <span class="brand-icon">🌍</span>
+          <div>
+            <h1>心有沟壑</h1>
+            <p class="subtitle" id="editionLabel">加载中…</p>
+          </div>
+        </div>
+        <button type="button" class="icon-btn" id="btnSettings" aria-label="设置">⚙️</button>
+      </header>
+
+      <nav class="edition-tabs" id="editionTabs">
+        <button type="button" class="tab active" data-edition="domestic">国内版</button>
+        <button type="button" class="tab" data-edition="international">国外版</button>
+      </nav>
+
+      <section class="continent-panel" id="continentPanel" hidden>
+        <p class="panel-title">选择大洲版图</p>
+        <div class="continent-grid" id="continentGrid"></div>
+        <button type="button" class="ghost-btn" id="btnWorldView">🌐 全球视图</button>
+      </section>
+
+      <footer class="bottom-bar">
+        <div class="coords" id="coordsDisplay">—</div>
+        <div class="zoom-controls">
+          <button type="button" class="icon-btn" id="btnZoomIn" aria-label="放大">＋</button>
+          <button type="button" class="icon-btn" id="btnZoomOut" aria-label="缩小">－</button>
+          <button type="button" class="icon-btn" id="btnReset" aria-label="复位">⌂</button>
+        </div>
+      </footer>
+
+      <aside class="settings-drawer" id="settingsDrawer" hidden>
+        <div class="drawer-header">
+          <h2>地图设置</h2>
+          <button type="button" class="icon-btn" id="btnCloseSettings">✕</button>
+        </div>
+        <label class="setting-row">
+          <span>高清卫星图层</span>
+          <input type="checkbox" id="toggleSatellite" checked />
+        </label>
+        <label class="setting-row">
+          <span>实时地形起伏</span>
+          <input type="checkbox" id="toggleTerrain" checked />
+        </label>
+        <label class="setting-row">
+          <span>地名注记</span>
+          <input type="checkbox" id="toggleLabels" checked />
+        </label>
+        <label class="setting-row">
+          <span>大气辉光</span>
+          <input type="checkbox" id="toggleAtmosphere" checked />
+        </label>
+        <p class="hint" id="providerHint"></p>
+      </aside>
+
+      <div class="loading-overlay" id="loadingOverlay">
+        <div class="loader-ring"></div>
+        <p>正在加载高清地球…</p>
+      </div>
+
+      <div id="voiceDot" class="voice-dot" title="眼镜语音控制"></div>
+      <div id="glassesStatus" class="device-badge glasses-badge">👓 眼镜</div>
+      <div id="voiceHints" class="voice-hints">
+        <span>说：国内版 · 亚洲 · 放大 · 复位 · 校准</span>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
